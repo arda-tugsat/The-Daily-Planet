@@ -1,0 +1,136 @@
+.edition-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-2) 0;
+  font-family: var(--sans);
+  font-size: var(--step--1);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+}
+
+.edition-ribbon__label {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.edition-ribbon__weather {
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  max-width: 28rem;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.edition-ribbon__toggle {
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+}
+
+.edition-ribbon__toggle:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.edition-ribbon__toggle:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.masthead {
+  text-align: center;
+  padding: var(--space-3) 0 var(--space-2);
+}
+
+.masthead__rule {
+  height: 1px;
+  background: var(--rule-strong);
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.masthead__rule--top {
+  margin-bottom: var(--space-3);
+}
+
+.masthead__rule--bottom {
+  margin-top: var(--space-3);
+}
+
+.masthead__tagline {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-2);
+}
+
+.masthead__edition-kicker {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--space-1);
+}
+
+html[data-edition='late'] .masthead__edition-kicker {
+  color: #8b1a1a;
+  font-weight: 700;
+}
+
+.masthead__title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: var(--step-5);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  margin: var(--space-2) 0 var(--space-2);
+}
+
+.masthead__title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.masthead__title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.masthead__meta {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: grid;
+  gap: var(--space-2);
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.masthead__date {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.masthead__weather {
+  margin: 0;
+  line-height: 1.4;
+}

@@ -1,0 +1,73 @@
+/**
+ * Shared motion utilities. `@media (prefers-reduced-motion)` in tokens.css
+ * shortens transitions globally; keyframes here still run unless overridden below.
+ */
+
+@keyframes dp-fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dp-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+@keyframes dp-pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+.dp-animate-fade-rise {
+  animation: dp-fade-rise var(--dur-slower) var(--ease-out) both;
+}
+
+.dp-pressable {
+  transition: transform var(--dur-fast) var(--ease-out), opacity var(--dur-fast)
+    var(--ease-out);
+}
+
+.dp-pressable:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dp-animate-fade-rise {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .dp-pressable:active {
+    transform: none;
+  }
+
+  @keyframes dp-shimmer {
+    0%,
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+  @keyframes dp-pulse-soft {
+    0%,
+    100% {
+      opacity: 1;
+    }
+  }
+}

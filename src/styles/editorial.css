@@ -1,0 +1,298 @@
+.story-card {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--rule);
+  transition: opacity var(--dur) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-card {
+    transition: none;
+  }
+}
+
+.story-card:first-child {
+  padding-top: 0;
+}
+
+.story-card--lead {
+  border-bottom: none;
+  padding-top: 0;
+  border-radius: var(--radius-md);
+  transition:
+    transform var(--dur-slow) var(--ease-out),
+    box-shadow var(--dur-slow) var(--ease-out);
+  will-change: transform;
+}
+
+.story-card--lead:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-card--lead {
+    transition: none;
+    will-change: auto;
+  }
+
+  .story-card--lead:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.story-card--rail {
+  padding: var(--space-3) 0;
+}
+
+.story-card--rail:first-child {
+  padding-top: 0;
+}
+
+.story-card--list:last-child {
+  border-bottom: none;
+}
+
+.story-card__series {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b4c1a;
+  margin: 0 0 var(--space-1);
+}
+
+html[data-edition='late'] .story-card__series {
+  color: #8b4513;
+}
+
+.story-card__section {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.35rem;
+}
+
+.story-card__headline {
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 1.12;
+  margin: 0 0 var(--space-2);
+}
+
+.story-card--lead .story-card__headline {
+  font-size: var(--step-4);
+}
+
+.story-card--rail .story-card__headline {
+  font-size: var(--step-2);
+}
+
+.story-card--list .story-card__headline,
+.story-card--river .story-card__headline {
+  font-size: var(--step-2);
+}
+
+/* Links inside headings/dek — avoid wrapping <h2>/<p> in <a> (DOM repair drops deck link in some engines). */
+.story-card__headline-link,
+.story-card__dek-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--dur) var(--ease-out);
+}
+
+.story-card__headline-link:hover,
+.story-card__headline-link:focus-visible,
+.story-card__dek-link:hover,
+.story-card__dek-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.story-card__headline-link:focus-visible,
+.story-card__dek-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* One logical target: hovering either link hints both are the same story */
+.story-card__text:has(.story-card__dek-link:hover) .story-card__headline-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.story-card__text:has(.story-card__headline-link:hover) .story-card__dek-link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.story-card__dek {
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  color: var(--muted);
+  margin: 0 0 0.65rem;
+}
+
+.story-card--lead .story-card__dek {
+  font-size: var(--step-1);
+  color: var(--ink);
+}
+
+.story-card__meta {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  margin: 0;
+}
+
+.story-card__byline {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.search-highlight {
+  background: rgba(255, 230, 120, 0.45);
+  padding: 0 0.05em;
+}
+
+html[data-edition='late'] .search-highlight {
+  background: rgba(200, 180, 100, 0.35);
+}
+
+/* Story card layout + remote photography */
+.story-card__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.story-card--with-thumb .story-card__inner {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.story-card__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.story-card__media-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+}
+
+.story-card__thumb-link {
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  max-width: 140px;
+  line-height: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.story-card__media-link:hover .editorial-figure__img,
+.story-card__thumb-link:hover .editorial-figure__img {
+  opacity: 0.92;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-card__media-link:hover .editorial-figure__img,
+  .story-card__thumb-link:hover .editorial-figure__img {
+    opacity: 1;
+  }
+}
+
+.editorial-figure {
+  margin: 0 0 var(--space-3);
+}
+
+.editorial-figure--hero {
+  margin-bottom: var(--space-4);
+}
+
+.story-card--lead .editorial-figure {
+  margin-top: 0;
+}
+
+.editorial-figure__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--rule);
+  border-radius: var(--radius-sm);
+  transition:
+    opacity var(--dur-slow) var(--ease-out),
+    transform var(--dur-slow) var(--ease-out);
+}
+
+.story-card .editorial-figure__img {
+  animation: dp-fade-rise var(--dur-slower) var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-card .editorial-figure__img {
+    animation: none;
+  }
+
+  .editorial-figure__img {
+    transition: opacity var(--dur) var(--ease-out);
+  }
+}
+
+.editorial-figure--rail .editorial-figure__img {
+  aspect-ratio: 4 / 3;
+}
+
+.editorial-figure--thumb {
+  margin: 0;
+  width: 132px;
+}
+
+.editorial-figure--thumb .editorial-figure__img {
+  aspect-ratio: 3 / 2;
+}
+
+.editorial-figure__credit {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  line-height: 1.35;
+  color: var(--muted);
+  margin: var(--space-2) 0 0;
+}
+
+.editorial-figure__placeholder {
+  width: 100%;
+  min-height: 8rem;
+  aspect-ratio: 16 / 9;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--rule),
+    var(--rule) 1px,
+    color-mix(in srgb, var(--paper) 88%, var(--muted)) 1px,
+    color-mix(in srgb, var(--paper) 88%, var(--muted)) 6px
+  );
+  border-radius: 2px;
+}
+
+.editorial-figure--thumb .editorial-figure__placeholder {
+  min-height: 4rem;
+  aspect-ratio: 3 / 2;
+}
+
+.editorial-figure--rail .editorial-figure__placeholder {
+  aspect-ratio: 4 / 3;
+}
