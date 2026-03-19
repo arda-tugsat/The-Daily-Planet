@@ -4,6 +4,8 @@ A **fictional metro newspaper** front-end demo: home page, section fronts, artic
 
 > This project is for demonstration only. It is not affiliated with DC Comics, Warner Bros., or any real publication.
 
+**Repository:** [github.com/arda-tugsat/The-Daily-Planet](https://github.com/arda-tugsat/The-Daily-Planet)
+
 ## Stack
 
 - **React 19** + **TypeScript**
@@ -21,6 +23,8 @@ npm run dev
 ```
 
 Open the URL Vite prints (usually `http://localhost:5173`).
+
+**Windows:** double-click [`start-dev.bat`](start-dev.bat) in the project folder (requires Node.js on your PATH). It installs dependencies if `node_modules` is missing, then runs the dev server.
 
 ```bash
 npm run build    # production build to dist/
@@ -48,24 +52,17 @@ npm run lint     # ESLint
 
 `BrowserRouter` uses Vite `import.meta.env.BASE_URL` so you can deploy under a **subpath** (e.g. GitHub Pages) by setting `base` in `vite.config.ts`.
 
-## Git & publishing
-
-This repository was initialized with `main` as the default branch. If your project folder is still named `test`, rename it when nothing has the folder open (e.g. close the editor), then from `Dev`:
-
-```powershell
-Rename-Item -LiteralPath ".\test" -NewName "daily-planet"
-```
-
-Initial commit should live on the `main` branch. To push to GitHub (example):
+## Clone & contribute
 
 ```bash
-git remote add origin https://github.com/<your-username>/daily-planet.git
-git branch -M main
-git push -u origin main
+git clone https://github.com/arda-tugsat/The-Daily-Planet.git
+cd The-Daily-Planet
+npm install
+npm run dev
 ```
 
-Create the empty repository on GitHub first, then use its URL as `origin`.
+Default branch is `main`.
 
 ## License
 
-Private / demonstration project unless you add an explicit `LICENSE` file.
+[MIT](LICENSE) — Copyright (c) 2026 Arda Tuğsat
